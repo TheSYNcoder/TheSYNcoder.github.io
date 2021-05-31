@@ -1,0 +1,18 @@
+.outline-none .text-sm::after {
+    content : "";
+    width: 2px;
+    height: 100%;
+    background: black;
+    opacity: 0;
+    display: inline-block;
+    animation : blink 300ms linear infinite alternate;
+}
+
+@keyframes blink {
+    50% {
+        opacity : 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
