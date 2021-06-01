@@ -131,7 +131,10 @@ const Terminal = (props) => {
     const processStatement = () => {
         
         const validstatements = ['cd' , 'ls' , 'touch' , 'cat' , 'open', 'clear'];
-        if ( currValue === "") return;
+        if ( currValue === "") {
+            curr.push({ statement: `Shuvayans-MacBook-Air:~ ${currDir.split('/').slice(-1)[0]}$` + currValue });
+            return;
+        }
         const tokens = currValue.split(' ').map( e => e.toLowerCase());
         const commmand = tokens[0];
         const error = "Wrong command : Supported Commands : cd , ls , touch , cat , open , clear";
