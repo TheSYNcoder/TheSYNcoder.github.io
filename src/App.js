@@ -10,14 +10,21 @@ import DefaultContextMenu from "./Components/DefaultContextMenu";
 import { Document, Page } from 'react-pdf/dist/esm/entry.webpack';
 import Profile from "./Components/Profile";
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
-
-
+import ReactGA from 'react-ga';
 import Terminal from "./Components/Terminal";
-
-
-
+import ChangeBackground from "./Components/ChangeBackground";
+import Dock from "./Components/Dock";
 import HDD from "./Assets/hdd.png";
 import Folder from "./Assets/folder.png";
+
+import Head from 'next/head';
+ReactGA.initialize('G-7NQQVYC6KN');
+ReactGA.pageview(window.location.pathname + window.location.search);
+
+
+
+
+
 
 const Component = () => {
   const { theme, setTheme } = useTheme();
@@ -36,6 +43,10 @@ const Component = () => {
   //   setNumPages(nextNumPages);
   // }
 
+  React.useEffect(() => {    
+    setTheme('dark');    
+  }, []);
+
 
   const getComponent = (id) => {
 
@@ -44,6 +55,8 @@ const Component = () => {
         return <Profile/>
       case 'TERMINAL':
         return <Terminal/>
+      case 'CHANGE_BACKGROUND':
+        return <ChangeBackground/>
       default:
         return  <div>Some Content</div>
     }
@@ -97,11 +110,11 @@ const Stacks = () => {
   const [state, dispatch] = useContext(Context);
     return (
        <div className="absolute right-0 mr-10 flex flex-col bg-transparent z-10">
-         <img src={HDD} style={{height:"70px", width:"70px"}} className="m-4 mb-0 shadow-xl" />
+        <img src={HDD} className="m-4 mb-0 h-12 w-12 md:h-16 md:w-16  shadow-xl" />
          <div className="text-xs text-white ml-1 font-black mt-2">Macintosh HD</div>
-        <div className="cursor-pointer focus:bg-gray-400 z-30" 
+        <div className="cursor-pointer focus:bg-gray-400 z-10" 
         onClick={() => dispatch({ type: "NEW_WINDOW", payload: { id: 'PROFILE', header: true } })}>
-          <img src={Folder} style={{ height: "70px", width: "70px" }} className="m-4 mb-0 shadow-xl" />
+          <img src={Folder} className="m-4 mb-0 h-12 w-12 md:h-16 md:w-16 shadow-xl" />
           <div className="text-xs text-white ml-4 font-black mt-2">About Me</div>
         </div>
        </div>
@@ -112,16 +125,22 @@ const App = ()  => {
 
   
   
+  
   return (
     <Store>
-      <ThemeProvider attribute="class" defaultTheme="dark" >  
-      
+      <ThemeProvider attribute="class">  
+        <Head>
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta charSet="utf-8" />
+          <title>Shuvayan's website</title>
+          <meta name="description" content={"This is the personal website of Shuvayan Ghosh Dastidar. The portfolio website is made using ReactJs and tailwindcss."} />
+        </Head>
         <Header />          
         <Component />   
         <Stacks/>
         <Background />
         <ContextMenu menu={ <DefaultContextMenu />} />
-      
+        <Dock/>
       </ThemeProvider>      
     </Store>
     

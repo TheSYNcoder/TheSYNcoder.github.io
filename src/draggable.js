@@ -89,12 +89,12 @@ const Draggable = (props) => {
             id = id.substr( 0, id.lastIndexOf("header"));
         }         
         
-        document.getElementById(id).classList.remove("z-10", "z-40");
+        document.getElementById(id).classList.remove("z-20", "z-40");
         document.getElementById(id).classList.add("z-40");                
 
         currState.current.windowsOpen.filter( x => x.id !== id).forEach( el => {
-            document.getElementById(el.id).classList.remove("z-10", "z-40");
-            document.getElementById(el.id).classList.add("z-10");
+            document.getElementById(el.id).classList.remove("z-20", "z-40");
+            document.getElementById(el.id).classList.add("z-20");
         })
         dispatch({ type: "FOCUSED_WINDOW", payload: id });
     }

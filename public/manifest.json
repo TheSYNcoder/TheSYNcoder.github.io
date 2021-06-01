@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Shuvayan's Portfolio",
+  "name": "Portfolio Website of Shuvayan Ghosh Dastidar made with ReactJs and tailwindcss.",
   "icons": [
     {
       "src": "favicon.ico",

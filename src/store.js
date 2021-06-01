@@ -8,7 +8,8 @@ const initialState = {
     terminal : { 
         lastLogin  : localStorage.getItem('lastLogin') || new Date(),
         history : localStorage.getItem('history') || [], 
-    }
+    },
+    background_image : 'pic1'
 }
 
 

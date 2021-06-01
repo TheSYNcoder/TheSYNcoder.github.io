@@ -34,6 +34,7 @@ const Profile = (props) => {
         changeScreen(last);
     }, []);
 
+    
     const renderNavLinks = () => {
         return (
             <div>

@@ -30,6 +30,9 @@ const About = () => {
                     <a href="https://github.com/TheSYNcoder/">
                         <ion-icon name="logo-github" style={{ fontSize: "30px", color: "black", margin :"2px" }}></ion-icon>
                     </a>
+                    <a href="https://twitter.com/TheSYNcoder">
+                        <ion-icon name="logo-twitter" style={{ fontSize: "30px", color: "lightblue", margin: "2px" }}></ion-icon>
+                    </a>
                 </div>
             </div>
         </div>

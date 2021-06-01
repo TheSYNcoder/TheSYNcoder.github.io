@@ -25,6 +25,12 @@ const Reducer = (state, action) => {
                 windowsOpen: state.windowsOpen.filter(x => x.id !== action.payload)
             }
         }
+        case 'CHANGE_BACKGROUND' : {
+            return {
+                ...state, 
+                background_image : action.payload
+            }
+        }
 
         default:
             return state;
