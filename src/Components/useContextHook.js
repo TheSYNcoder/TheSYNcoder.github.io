@@ -11,7 +11,7 @@ export const useContextHook = () => {
     const handleContextMenu = (e) => {
         e.preventDefault();
        
-        console.log('handle', e.pageX, e.clientX, e.clientY, e.pageY);
+        
         setXPos(`${e.pageX}px`);
         setYPos(`${e.pageY}px`);
         setShowMenu(true);
@@ -51,7 +51,7 @@ export const useContextHook = () => {
 
 const ContextMenu = ({menu}) => {
     const { xPos , yPos , showMenu } = useContextHook();
-    console.log( xPos , yPos , showMenu );
+    
     return (
         <Motion defaultStyle={{opacity : 0 }}
         style={{opacity :!showMenu ? spring(0) : spring(1) }}

@@ -52,7 +52,17 @@ const Terminal = (props) => {
                     'shuvayan'
                 ]
             }
+            
+
+
             localStorage.setItem('localstructure', JSON.stringify(dirStructure));
+        }
+        var files = JSON.parse(localStorage.getItem('files'));
+        if (files === null || files === undefined) {
+            files = {
+                'shuvayan/documents/welcome.txt': "Hey welcome to the personal website of Shuvayan Ghosh Dastidar. This is based on the theme of MacOS. All basic features in default MacOS are present. Hope you have a great time."
+            }
+            localStorage.setItem('files', JSON.stringify(files));
         }
     }, []);
     
@@ -126,6 +136,76 @@ const Terminal = (props) => {
         }
     
     }
+
+
+    const processTouch = (tokens) => {
+        var ret = [];
+        var filest = JSON.parse(localStorage.getItem('files'));
+        var dirStr = JSON.parse(localStorage.getItem('localstructure'));
+        if ( tokens.length === 1 ){
+            return [ "touch: usage: touch <file1> <file2> .."];
+        }
+        var filenames = tokens.slice(1);
+        var validfiles = Object.keys(filest);
+        for ( var file of filenames ){
+            var sysfile = currDir + '/' + file;
+            if ( validfiles.indexOf(sysfile) !== -1 ){
+                continue;
+            }
+            filest[sysfile] = "";
+            var filesinDir = dirStr[currDir];
+            filesinDir.push(file);
+            dirStr[currDir] = filesinDir;
+            localStorage.setItem('localstructure', JSON.stringify(dirStr));
+        }
+        return ret;
+    }
+
+
+    const processCAT = (tokens) => {
+        var ret = [];
+        if ( tokens.length ===  1 ) {
+            return ret;
+        }
+        const filenames = tokens.slice(1);
+        var filest = JSON.parse(localStorage.getItem('files'));
+        for ( var file of filenames ){
+            var content = filest[currDir + '/' + file ];
+            ret.push(content);
+        }
+        return ret;
+    }
+
+
+    const processOpen = (tokens) => {
+        var ret = [];
+        
+        if ( tokens.length !== 2){
+            return [ 'open: usage: open <app>'];
+        }
+        var dirStr = JSON.parse(localStorage.getItem('localstructure'));
+        var validDir = currDir === 'shuvayan' ? Object.keys(dirStr) : dirStr[currDir];
+        var filenames = Object.keys(JSON.parse(localStorage.getItem('files')));
+        // cannot open files
+        const appname =tokens[1];
+        if ( filenames.indexOf( currDir + '/' + appname ) !== -1){
+            return [ 'open: error: cannot open file : ' + appname];
+        }
+        // open finder on not app 
+
+        // TODO fix implementation of finder and mail apps
+        var dirs = Object.keys(JSON.parse(localStorage.getItem('localstructure')));
+        if ( dirs.indexOf( currDir + '/' + appname ) !== -1){
+            dispatch({ type: "NEW_WINDOW", payload: { id: 'RANDOM', header: true, title : appname } })
+            return ret;
+        }
+        var validApps = dirStr['shuvayan/applications'].map(e => e.toLowerCase());
+        if (currDir === 'shuvayan/applications' && validApps.indexOf(appname) !== -1){  
+            dispatch({ type: "NEW_WINDOW", payload: { id: 'RANDOM', header: true, title: appname } })
+            return ret;
+        }
+        return ['open: error: cannot open ' + appname]        
+    }
     
 
     const processStatement = () => {
@@ -184,15 +264,30 @@ const Terminal = (props) => {
                 return;
             }
             case 'touch' : {
-                // TODO
+                var ret = processTouch(tokens);
+                for ( var r of ret) {
+                    curr.push({ res : r});
+                }
+                setCurrHistory(curr);
+                setValue('');
                 return;
             }
-            case 'cat' : {
-                // TODO
+            case 'cat' : {                
+                var content = processCAT(tokens);
+                for ( var con of content ){
+                    curr.push({ res : con });                    
+                }
+                setCurrHistory(curr);
+                setValue('');
                 return;
             } 
             case 'open' : {
-                // TODO
+                var ret = processOpen(tokens);
+                for (var con of ret) {
+                    curr.push({ res: con });
+                }
+                setCurrHistory(curr);
+                setValue('');
                 return;
             }
             default : console.log('wrong command');

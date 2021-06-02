@@ -15,6 +15,7 @@ import Terminal from "./Components/Terminal";
 import ChangeBackground from "./Components/ChangeBackground";
 import Dock from "./Components/Dock";
 import HDD from "./Assets/hdd.png";
+import SpotLight from "./Components/Spotlight";
 import Folder from "./Assets/folder.png";
 
 import Head from 'next/head';
@@ -140,6 +141,7 @@ const App = ()  => {
         <Stacks/>
         <Background />
         <ContextMenu menu={ <DefaultContextMenu />} />
+        <SpotLight />
         <Dock/>
       </ThemeProvider>      
     </Store>
