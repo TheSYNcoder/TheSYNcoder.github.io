@@ -88,11 +88,11 @@ const Profile = (props) => {
             <div className="md:flex hidden flex-col w-1/4 md:w-1/5 h-full bg-gray-200 dark:bg-gray-700 text-sm overflow-y-auto rounded-bl-xl" style={{height : context.height }}>
                 {renderNavLinks()}
             </div>
-            <div onClick={() => showNavbar(!navbar)} className="md:hidden flex flex-col items-center justify-center absolute bg-ub-cool-grey rounded w-6 h-6 top-1 left-1">
-                <div className=" w-3.5 border-t border-black"></div>
-                <div className=" w-3.5 border-t border-black" style={{ marginTop: "2pt", marginBottom: "2pt" }}></div>
-                <div className=" w-3.5 border-t border-black"></div>
-                <div className={(navbar ? " visible animateShow z-30 " : " invisible ") + " md:hidden text-xs absolute bg-ub-cool-grey py-0.5 px-1 rounded-sm top-full mt-1 left-0 shadow border-black border border-opacity-20"}>
+            <div onClick={() => showNavbar(!navbar)} className="md:hidden flex flex-col items-center justify-center absolute rounded w-6 h-6 top-1 left-1">
+                <div className=" w-3.5 border-t border-black dark:border-white"></div>
+                <div className=" w-3.5 border-t border-black dark:border-white" style={{ marginTop: "2pt", marginBottom: "2pt" }}></div>
+                <div className=" w-3.5 border-t border-black dark:border-white"></div>
+                <div className={(navbar ? " visible animateShow z-30 " : " invisible ") + " md:hidden text-xs absolute py-0.5 px-1 rounded-sm top-full mt-1 left-0 shadow border-black border border-opacity-20"}>
                     {renderNavLinks()}
                 </div>
             </div>

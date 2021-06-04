@@ -321,6 +321,13 @@ const Terminal = (props) => {
             processStatement();            
         }
     }
+
+    if (window.screen.width < 500) {
+        context = {
+            height: "30rem",
+            width: (window.screen.width - 200) + "px"
+        }
+    }
     
 
     return (

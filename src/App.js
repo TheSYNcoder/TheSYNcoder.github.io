@@ -63,7 +63,7 @@ const Component = () => {
 const Stacks = () => {
   const [state, dispatch] = useContext(Context);
     return (
-       <div className="absolute right-0 mr-10 flex flex-col bg-transparent z-10">
+       <div className="absolute right-0 mr-10 flex flex-col bg-transparent" style={{zIndex : 5}}>
         <img src={HDD} className="m-4 mb-0 h-12 w-12 md:h-16 md:w-16  shadow-xl" />
          <div className="text-xs text-white ml-1 font-black mt-2">Macintosh HD</div>
         <div className="cursor-pointer focus:bg-gray-400 z-10" 

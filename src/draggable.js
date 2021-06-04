@@ -10,7 +10,8 @@ const Draggable = (props) => {
 
 
     const [ currHeight , setHeigth ] = React.useState("30rem");
-    const [ currWidth , setWidth ] = React.useState("40rem");
+    const [ currWidth , setWidth ] = React.useState( "40rem");
+    
 
     const currState = React.useRef(state);
     
@@ -260,7 +261,7 @@ const Draggable = (props) => {
             }
 
             function doDrag(e) {
-                if (startWidth + e.clientX - startX  > 480 ){
+                if (startWidth + e.clientX - startX  > 280 ){
                     elem.style.width = startWidth + e.clientX - startX  + "px";
                     setWidth(elem.style.width);
                 }
@@ -271,7 +272,7 @@ const Draggable = (props) => {
             }
 
             function doDragMinusBoth(e) {   
-                if (startWidth + e.clientX - startX > 480) {
+                if (startWidth + e.clientX - startX > 280) {
                     elem.style.width = startWidth - e.clientX + startX + "px";
                     setWidth(elem.style.width);
                 }
@@ -287,7 +288,7 @@ const Draggable = (props) => {
                 if (startWidth - e.clientX + startX !==  elem.style.minWidth) {
                     elem.style.left = e.clientX + "px";
                 }
-                if (startWidth + e.clientX - startX > 480) {
+                if (startWidth + e.clientX - startX > 280) {
                     elem.style.width = startWidth - e.clientX + startX + "px";
                     setWidth(elem.style.width);
                 }
@@ -297,7 +298,7 @@ const Draggable = (props) => {
                 }                                
             }
             function doDragMinusTop(e) {  
-                if (startWidth + e.clientX - startX > 480) {
+                if (startWidth + e.clientX - startX > 280) {
                     elem.style.width = startWidth - e.clientX + startX + "px";
                     setWidth(elem.style.width);
                 }
