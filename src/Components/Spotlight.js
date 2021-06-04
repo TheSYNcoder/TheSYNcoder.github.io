@@ -86,9 +86,9 @@ const SpotLight = () => {
             if ( index === 0) {
                 dispatch({ type: "NEW_WINDOW", payload: { id: 'TERMINAL', header: true, title: "Terminal" } })            
             } else if ( index === 1 ){
-                dispatch({ type: "NEW_WINDOW", payload: { id: 'RANDOM', header: true, title: "Mail" } })            
+                dispatch({ type: "NEW_WINDOW", payload: { id: 'MAIL', header: true, title: "Mail" } })            
             } else if ( index ===  2 ){
-                dispatch({ type: "NEW_WINDOW", payload: { id: 'RANDOM', header: true, title: "Finder" } })
+                dispatch({ type: "NEW_WINDOW", payload: { id: 'PROFILE', header: true, title: "Hello" } })
             }
             setShow(false);
 
