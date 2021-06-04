@@ -1,5 +1,4 @@
 
-
 const Reducer = (state, action) => {
     switch (action.type) {
         case 'NEW_WINDOW': {
@@ -31,6 +30,7 @@ const Reducer = (state, action) => {
                 background_image : action.payload
             }
         }
+        
 
         default:
             return state;

@@ -12,13 +12,23 @@ const Dock = () => {
     const [ store, dispatch]  = React.useContext(Context);
     const [name, setName] = React.useState('');
 
+    const getName = () => {
+        if ( window === 'TERMINAL' ) {
+            return 'Terminal';
+        }
+        if ( window === 'MAIL') {
+            return 'Mail';
+        }
+        return 'Hello';
+    }
+
     React.useEffect(() => {
         var timeo;
         if ( clicked ){
                 timeo = setTimeout(() => {
                     setClick(false);
                     if ( window){
-                        dispatch({ type: "NEW_WINDOW", payload: { id: window, header: true, title: (window === 'TERMINAL' ? 'Terminal' : 'Hello') } })
+                        dispatch({ type: "NEW_WINDOW", payload: { id: window, header: true, title: getName() } })
                     }                    
                 }, 1500);
                 
@@ -37,7 +47,7 @@ const Dock = () => {
                 }}
                     className={"h-16 w-16 " + (clicked  && name === 'launchpad' ? "animate-bounce" : "")}></img>
                 <img src={Mail} onClick={() => {
-                    setClick(true); setWindow(null); setName('mail');
+                    setClick(true); setWindow('MAIL'); setName('mail');
                 }}
                     className={"h-14 w-14 mt-1 " + (clicked  && name === 'mail' ? "animate-bounce" : "")}></img>
                 <img src={Terminal} onClick={() => {

@@ -10,20 +10,14 @@ import DefaultContextMenu from "./Components/DefaultContextMenu";
 import { Document, Page } from 'react-pdf/dist/esm/entry.webpack';
 import Profile from "./Components/Profile";
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
-import ReactGA from 'react-ga';
 import Terminal from "./Components/Terminal";
 import ChangeBackground from "./Components/ChangeBackground";
 import Dock from "./Components/Dock";
 import HDD from "./Assets/hdd.png";
 import SpotLight from "./Components/Spotlight";
 import Folder from "./Assets/folder.png";
-
 import Head from 'next/head';
-ReactGA.initialize('G-7NQQVYC6KN');
-ReactGA.pageview(window.location.pathname + window.location.search);
-
-
-
+import Mail from "./Components/Mail";
 
 
 
@@ -58,6 +52,8 @@ const Component = () => {
         return <Terminal/>
       case 'CHANGE_BACKGROUND':
         return <ChangeBackground/>
+      case 'MAIL':
+        return <Mail />
       default:
         return  <div>Some Content</div>
     }
@@ -124,9 +120,6 @@ const Stacks = () => {
  
 const App = ()  => {  
 
-  
-  
-  
   return (
     <Store>
       <ThemeProvider attribute="class">  

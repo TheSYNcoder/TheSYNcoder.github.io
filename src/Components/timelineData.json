@@ -1,0 +1,47 @@
+[
+    {
+        "title": "CICBA",
+        "description": "Gave a presentation on my paper at CICBA",
+        "date": "7-9 January 2021"
+    },
+    {
+        "title": "First Paper Acceptance",
+        "description": "My Paper on Knowledge Distillation got accepted at CICBA International Conference",
+        "date": "22 December 2020"
+    },
+    {
+        "title": "Blogging",
+        "description": "Wrote many blogs on platforms like medium and GFG",
+        "date": "Sep-Oct 2020"
+    },
+    {
+        "title": "Amazon SDE intern",
+        "description": "Selected as an Amazon Summer SDE Intern through campus internship drive of Jadavpur University",
+        "date": "8 September 2020"
+    },
+    {
+        "title": "SIH Winner",
+        "description": "My team become the winners of SIH 2020 for our app - EcoEden ( written in flutter )",
+        "date": "3 July 2020"
+    },
+    {
+        "title": "Analytical Intern at My Ways",
+        "description": "Started working as an analytical intern at My Ways",
+        "date": "4 June 2020"
+    },
+    {
+        "title": "Undergraduate Reasearch Intern at IIT Bombay",
+        "description": "Started working under professor Biblab Banerjee of IIT Bombay.",
+        "date": "4 April 2020"
+    },
+    {
+        "title": "Undergraduate Reasearch Intern at Jadavpur University",
+        "description": "Started working as an undergraduate researcher in CMATER(DVLP) Lab of Jadavpur University under Professor Nibaran Das.",
+        "date": "24 April 2019"
+    },
+    {
+        "title": "Jadavpur University, Kolkata ( CS 2022 Batch )",
+        "description": "My journey with Computer Science started with the orientation.",
+        "date": "2 August 2018"
+    }
+]

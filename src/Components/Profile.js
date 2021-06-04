@@ -3,10 +3,13 @@ import { act } from 'react-dom/test-utils';
 import About from './Screens/About';
 import Projects from './Screens/Projects';
 import Research from './Screens/Research';
+import Timeline from "./Timeline";
 
 import AboutSVG from "../Assets/profile.svg"
 import ProjectSVG from "../Assets/project.svg"
 import ResearchSVG from "../Assets/research.svg"
+import Clock from "../Assets/clock.png";
+
 const Profile = (props) => {
 
     const [ activeScreen , setScreen ] = React.useState("about");
@@ -16,7 +19,8 @@ const Profile = (props) => {
     const screens = {
         'about' : <About/>,
         'projects' : <Projects/>,
-        'research' : <Research/>
+        'research' : <Research/>,
+        'timeline' : <Timeline/>
     }
 
     const changeScreen = (e) => {
@@ -49,6 +53,10 @@ const Profile = (props) => {
                 <div tabIndex="0" onFocus={() => changeScreen('research')} className={(activeScreen === "research" ? " bg-gray-300  bg-opacity-100 hover:bg-opacity-95" : " hover:bg-gray-50 hover:bg-opacity-5 ") + " w-28 md:w-full  rounded-lg cursor-default outline-none py-1.5 focus:outline-none duration-100 my-0.5 flex items-center pl-2 md:pl-2.5"}>
                     <img className=" w-2 md:w-4 " alt="Research" src={ ResearchSVG }/>
                     <span className=" ml-1 md:ml-2 text-black text-xs dark:text-white">Research</span>
+                </div>
+                <div tabIndex="0" onFocus={() => changeScreen('timeline')} className={(activeScreen === "timeline" ? " bg-gray-300  bg-opacity-100 hover:bg-opacity-95" : " hover:bg-gray-50 hover:bg-opacity-5 ") + " w-28 md:w-full  rounded-lg cursor-default outline-none py-1.5 focus:outline-none duration-100 my-0.5 flex items-center pl-2 md:pl-2.5"}>
+                    <img className=" w-2 md:w-4 " alt="Timeline" src={ Clock }/>
+                    <span className=" ml-1 md:ml-2 text-black text-xs dark:text-white">Timeline</span>
                 </div>
                 
             </div>

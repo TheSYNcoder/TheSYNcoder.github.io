@@ -83,10 +83,10 @@ const Terminal = (props) => {
         if ( tokens.length === 1 ){
             if ( currDir === 'shuvayan') {
                 contents = Object.keys(dirStr['folders']);
-                return contents.join(' ');            
+                return contents.map(e => e.split('/').slice(-1)[0]).join(' ');
             }                                 
             
-            return dirStr[currDir].join(' ');
+            return dirStr[currDir].map( e => e.split('/').slice(-1)[0]).join(' ');
         }
         var dirs = tokens.slice(1);
         const ret = {};
@@ -153,11 +153,21 @@ const Terminal = (props) => {
                 continue;
             }
             filest[sysfile] = "";
-            var filesinDir = dirStr[currDir];
-            filesinDir.push(file);
-            dirStr[currDir] = filesinDir;
-            localStorage.setItem('localstructure', JSON.stringify(dirStr));
+                        
+            var filesinDir;
+            if (currDir === 'shuvayan') {
+                var fils = dirStr['folders'];
+                console.log(dirStr , fils);
+                fils[sysfile] = "";
+                dirStr['folders'] = fils;
+            } else {
+                filesinDir = dirStr[currDir];
+                filesinDir.push(file);
+                dirStr[currDir] = filesinDir;
+            }                                            
         }
+        localStorage.setItem('files' , JSON.stringify(filest));
+        localStorage.setItem('localstructure', JSON.stringify(dirStr));
         return ret;
     }
 
