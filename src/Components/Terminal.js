@@ -197,21 +197,28 @@ const Terminal = (props) => {
         var validDir = currDir === 'shuvayan' ? Object.keys(dirStr) : dirStr[currDir];
         var filenames = Object.keys(JSON.parse(localStorage.getItem('files')));
         // cannot open files
-        const appname =tokens[1];
+        const appname =tokens[1].toLowerCase();
         if ( filenames.indexOf( currDir + '/' + appname ) !== -1){
             return [ 'open: error: cannot open file : ' + appname];
         }
         // open finder on not app 
 
         // TODO fix implementation of finder and mail apps
-        var dirs = Object.keys(JSON.parse(localStorage.getItem('localstructure')));
-        if ( dirs.indexOf( currDir + '/' + appname ) !== -1){
-            dispatch({ type: "NEW_WINDOW", payload: { id: 'RANDOM', header: true, title : appname } })
-            return ret;
-        }
+        // var dirs = Object.keys(JSON.parse(localStorage.getItem('localstructure')));
+        // if ( dirs.indexOf( currDir + '/' + appname ) !== -1){
+        //     dispatch({ type: "NEW_WINDOW", payload: { id: 'RANDOM', header: true, title : appname } })
+        //     return ret;
+        // }
         var validApps = dirStr['shuvayan/applications'].map(e => e.toLowerCase());
         if (currDir === 'shuvayan/applications' && validApps.indexOf(appname) !== -1){  
-            dispatch({ type: "NEW_WINDOW", payload: { id: 'RANDOM', header: true, title: appname } })
+            if ( appname === 'terminal.app'){
+                dispatch({ type: "NEW_WINDOW", payload: { id: 'TERMINAL', header: true, title: appname } })
+            } else if ( appname === 'mail.app'){
+                dispatch({ type: "NEW_WINDOW", payload: { id: 'MAIL', header: true, title: appname } });
+            } else {
+                dispatch({ type: "NEW_WINDOW", payload: { id: 'PROFILE', header: true, title: appname } });
+            }
+            
             return ret;
         }
         return ['open: error: cannot open ' + appname]        
