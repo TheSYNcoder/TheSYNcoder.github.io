@@ -21,13 +21,13 @@ const Mail = (props) => {
         <div className="flex relative bg-white dark:bg-gray-900 rounded-b-xl" style={{ height: context.height, width: context.width, minHeight: "30rem" }}>
             <div className="flex flex-col mx-1 h-full w-full">
                 <div className="h-10 w-full p-1" style={{backgroundColor :"rgb(56,59,65)"}}>
-                    <a href={`mailto:sgd030@gmail.com?subject=${encodeURI(subject)}&cc=${cc}&body=${encodeURI(body)}`}>
+                    <a href={`mailto:contact@shuvayan.com?subject=${encodeURI(subject)}&cc=${cc}&body=${encodeURI(body)}`}>
                     <img
                             className="ml-3 cursor-pointer" src={Send}></img></a>
                 </div>
                 <div className="flex flex-row w-full mt-3 ml-3">
                     <div className="text-xs mr-5 dark:text-gray-400 text-gray-800">To:</div>
-                    <div className="text-xs mr-5 dark:text-white text-gray-900">sgd030@gmail.com</div>
+                    <div className="text-xs mr-5 dark:text-white text-gray-900">contact@shuvayan.com</div>
                 </div>
                 <div className="border dark:border-gray-800 border-gray-800 border-b-1 my-3"></div>
                 <div className="flex flex-row w-full mt-1 ml-3">

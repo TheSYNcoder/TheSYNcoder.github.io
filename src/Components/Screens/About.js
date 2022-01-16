@@ -24,7 +24,7 @@ const About = () => {
                     <a href="https://www.instagram.com/chroma_mania/">
                         <img src={Insta} style={{width :"30px" , margin:"2px" }}/>
                     </a>
-                    <a href="https://www.linkedin.com/in/shuvayan-ghosh-dastidar-3b5383166/">
+                    <a href="https://www.linkedin.com/in/shuvayan-ghosh-dastidar/">
                         <ion-icon name="logo-linkedin" style={{ fontSize: "30px", color: "#0077B5", margin :"2px" }}></ion-icon>
                     </a>
                     <a href="https://github.com/TheSYNcoder/">

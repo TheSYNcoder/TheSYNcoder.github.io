@@ -9,9 +9,7 @@ export const useContextHook = () => {
 
 
     const handleContextMenu = (e) => {
-        e.preventDefault();
-       
-        
+        e.preventDefault();               
         setXPos(`${e.pageX}px`);
         setYPos(`${e.pageY}px`);
         setShowMenu(true);

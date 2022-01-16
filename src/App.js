@@ -18,6 +18,9 @@ import SpotLight from "./Components/Spotlight";
 import Folder from "./Assets/folder.png";
 import Head from 'next/head';
 import Mail from "./Components/Mail";
+import Socials from "./Components/Socials";
+import { BrowserRouter as Router, Route , Routes, Link } from "react-router-dom";
+import Banner from './Components/banner';
 
 
 
@@ -74,6 +77,75 @@ const Stacks = () => {
        </div>
     )
 }
+
+
+const Mac = () => {
+  return (
+      <div>
+        <Header />          
+        <Component />   
+        <Stacks/>
+        <Background />
+        <ContextMenu menu={ <DefaultContextMenu />} />
+        <SpotLight />
+        <Dock/>
+        <Banner />
+    </div>
+  )
+}
+
+
+
+
+const Home = () => {
+  const sst = {
+    backgroundImage: "url('/imgs/ita-naruto.gif')",
+    width: "100vw",
+    height: "100vh",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: 'contain',
+    backgroundPosition : 'center center',  
+    backgroundAttachment: 'fixed',
+    backgroundSize: 'cover'
+  }
+
+  
+  return (
+    <div className="App">
+      <div style={sst}>     
+        <div className="flex justify-center" >
+          <Link to="/mac" className="transform transition duration-1000 hover:scale-110">
+            <img src="/imgs/sharingan.gif" ></img>        
+          </Link>         
+        </div>
+        <div className="flex  justify-center items-center h-2/6">
+          
+            <div className="flex flex-col gap-4 mt-2">
+              <div className="font-mono font-extrabold text-4xl md:text-6xl"> 
+              <span className="text-red-600">Hi ,</span> 
+              <span className="text-white md:text-red-600">I am</span>   </div>
+              <div className="font-mono font-extrabold text-2xl md:text-4xl">
+                <span className="text-red-600">Shuvayan</span> Ghosh 
+                <span className="text-red-600"> Dastidar</span>
+              </div>                     
+              <div className="font-mono font-extrabold text-2xl">
+                <span className="text-red-600">Software</span> {'     '}
+                <span className="text-red-300"> Developer</span>
+              </div>                     
+            </div>                      
+        </div>
+        <div className="flex  h-1/6 mx-32 md:mx-64 ">
+          <div className="font-mono flex justify-center text-sm md:text-lg font-bold text-white md:text-red-500 text-center w-full">
+            If you are on a PC or a laptop click on the sharingan above or any of the socials to know more about me!
+          </div>
+        </div>
+        <div className="flex h-44 w-full justify-center items-center flex-grow flex-shrink">         
+         <Socials />
+        </div>
+      </div>
+    </div>
+  );
+}
  
 const App = ()  => {  
 
@@ -85,14 +157,13 @@ const App = ()  => {
           <meta charSet="utf-8" />
           <title>Shuvayan's website</title>
           <meta name="description" content={"This is the personal website of Shuvayan Ghosh Dastidar. The portfolio website is made using ReactJs and tailwindcss."} />
-        </Head>
-        <Header />          
-        <Component />   
-        <Stacks/>
-        <Background />
-        <ContextMenu menu={ <DefaultContextMenu />} />
-        <SpotLight />
-        <Dock/>
+        </Head >
+        <Router>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/mac" element={<Mac />} />
+          </Routes>
+        </Router>
       </ThemeProvider>      
     </Store>
     
