@@ -19,7 +19,7 @@ import Folder from "./Assets/folder.png";
 import Head from 'next/head';
 import Mail from "./Components/Mail";
 import Socials from "./Components/Socials";
-import { BrowserRouter as Router, Route , Routes, Link } from "react-router-dom";
+import { HashRouter as Router, Route , Routes, Link } from "react-router-dom";
 import Banner from './Components/banner';
 import Vasundhara from './Vasundhara';
 
