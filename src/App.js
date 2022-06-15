@@ -21,6 +21,7 @@ import Mail from "./Components/Mail";
 import Socials from "./Components/Socials";
 import { BrowserRouter as Router, Route , Routes, Link } from "react-router-dom";
 import Banner from './Components/banner';
+import Vasundhara from './Vasundhara';
 
 
 
@@ -162,6 +163,7 @@ const App = ()  => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/mac" element={<Mac />} />
+            <Route path="/mylove/vasundhara" element={<Vasundhara />} />
           </Routes>
         </Router>
       </ThemeProvider>      
