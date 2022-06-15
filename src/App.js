@@ -160,10 +160,10 @@ const App = ()  => {
           <meta name="description" content={"This is the personal website of Shuvayan Ghosh Dastidar. The portfolio website is made using ReactJs and tailwindcss."} />
         </Head >
         <Router>
-          <Routes>
-            <Route path="/" element={<Home />} />
+          <Routes>            
             <Route path="/mac" element={<Mac />} />
             <Route path="/mylove/vasundhara" element={<Vasundhara />} />
+            <Route path="/" element={<Home />} />
           </Routes>
         </Router>
       </ThemeProvider>      
