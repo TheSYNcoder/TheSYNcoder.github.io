@@ -30,9 +30,9 @@ const Banner = (props) => {
 
 
     return (
-        <div id="banner" role='alert' className={"absolute top-10 md:top-1/4 left-1/4 z-10 w-6/12 flex flex-col h-15 md:h-30 rounded-2xl bg-purple-400  border-t-4  rounded-b text-white px-4 py-3 shadow-md " + (props.show ? "" : "hidden")}  >
+        <div id="banner" role='alert' className={"absolute top-10 md:top-1/4 left-[16.67%] md:left-1/4 z-10 w-2/3 md:w-6/12 flex flex-col h-15 md:h-30 rounded-2xl bg-purple-400  border-t-4  rounded-b text-white px-4 py-3 shadow-md " + (props.show ? "" : "hidden")}  >
             <strong class="font-bold py-6 text-lg md:text-2xl">Happy Birthday!!! 🎂 🍰</strong>
-            <span class="block sm:inline text-sm md:text-lg">Hi Vasundhara, the very less time I have spent with you till now has been amazing and I want you to enjoy your birthday to the fullest. It's okay if we cannot celebrate your birthday this time together but I really hope we can be together for all the next amazing birthdays you are going to have. That being said, always carry that beautiful smile of yours which brightens up my day and I am sure the people around you. So may you have the best birthday. You are the best! Meet Soon.</span>
+            <span class="block sm:inline text-sm md:text-lg py-3">Hi Vasundhara, the very less time I have spent with you till now has been amazing and I want you to enjoy your birthday to the fullest. It's okay if we cannot celebrate your birthday this time together but I really hope we can be together for all the next amazing birthdays you are going to have. That being said, always carry that beautiful smile of yours which brightens up my day and I am sure the people around you. So may you have the best birthday. You are the best! Meet Soon.</span>
             <span class="absolute top-0 bottom-0 right-0 px-4 py-3" onClick={() => props.setShow(false)}>
                 <svg class="fill-current h-6 w-6 text-blue-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z" /></svg>
             </span>
@@ -46,7 +46,7 @@ const Vasundhara = () => {
     const [show, setShow] = React.useState(true);
     const { width, height } = useWindowSize()
     return (
-        <div className="md:w-full md:h-screen h-auto bg-gradient-to-bl from-blue-400 to-pink-500">
+        <div className="md:w-full min-h-screen h-auto bg-gradient-to-bl from-blue-400 to-pink-500">
             <Banner show={show} setShow={setShow} />
             <Confetti 
                 width={width}

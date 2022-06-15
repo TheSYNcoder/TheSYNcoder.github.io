@@ -7,7 +7,8 @@ module.exports = {
       '0' : '0', 
       '1/4': '25%',
       '1/2': '50%',
-      '3/4': '75%'
+      '3/4': '75%',
+      'screen' : '100vh'
     },
     minWidth : {
       '0' : '0', 
@@ -15,7 +16,10 @@ module.exports = {
       '1/2': '50%',
       '3/4': '75%'
     },
-    extend: {},
+    
+    extend: {
+      
+    },
   },
   variants: {
     extend: {
