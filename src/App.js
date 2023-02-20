@@ -21,7 +21,6 @@ import Mail from "./Components/Mail";
 import Socials from "./Components/Socials";
 import { HashRouter as Router, Route , Routes, Link } from "react-router-dom";
 import Banner from './Components/banner';
-import Vasundhara from './Vasundhara';
 
 
 
@@ -161,8 +160,7 @@ const App = ()  => {
         </Head >
         <Router>
           <Routes>            
-            <Route path="/mac" element={<Mac />} />
-            <Route path="/mylove/vasundhara" element={<Vasundhara />} />
+            <Route path="/mac" element={<Mac />} />            
             <Route path="/" element={<Home />} />
           </Routes>
         </Router>
