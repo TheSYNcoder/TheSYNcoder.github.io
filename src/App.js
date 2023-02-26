@@ -125,7 +125,7 @@ const Home = () => {
               <span className="text-red-600">Hi ,</span> 
               <span className="text-white md:text-red-600">I am</span>   </div>
               <div className="font-mono font-extrabold text-2xl md:text-4xl">
-                <span className="text-red-600">Shuvayan</span> Ghosh 
+              <span className="text-red-600">Shuvayan</span> <span className="text-white">Ghosh</span>
                 <span className="text-red-600"> Dastidar</span>
               </div>                     
               <div className="font-mono font-extrabold text-2xl">
