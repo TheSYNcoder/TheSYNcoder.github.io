@@ -1,0 +1,53 @@
+import React from "react";
+
+import { gsap } from "gsap";
+import data from "../Constants/timelineData.json";
+
+const Timeline = () => {
+    const items = data;
+
+
+    const hide = (elem: JSX.Element) => {
+        gsap.set(elem, { autoAlpha: 0 });
+    };
+
+
+    return (
+        <div className="flex flex-col">
+            <div className="dark:text-white text-black font-black text-2xl mt-4 w-full text-center">Timeline</div>
+            <div className="timeline">
+                <ul>
+                    {items.map((te, idx) => {
+                        return (
+                            <li key={`${te.title}_${te.date}`}>
+                                <div className="content">
+                                    <h3
+                                        className={`animate ${idx % 2 === 0 ? "slide_from_left" : "slide_from_right"
+                                            }`}
+                                    >
+                                        {te.title}
+                                    </h3>
+                                    <p
+                                        className={`animate ${idx % 2 === 0 ? "slide_from_left" : "slide_from_right"
+                                            }`}
+                                    >
+                                        {te.description}
+                                    </p>
+                                </div>
+                                <div
+                                    className={`time animate ${idx % 2 === 0 ? "slide_from_right" : "slide_from_left"
+                                        }`}
+                                >
+                                    <h4>{te.date}</h4>
+                                </div>
+                            </li>
+                        );
+                    })}
+                    <div style={{ clear: "both" }}></div>
+                </ul>
+            </div>
+        </div>
+    );
+};
+
+export default Timeline;
